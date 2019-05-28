@@ -25,4 +25,22 @@
         @endforeach
     </ul>
 
+    <form method="POST" action="{{ route("comments-movie", ["movieId" => $movie->id]) }}">
+            @csrf
+
+            <div class="form-group">
+                <label for="content">Comment</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="content"
+                    name="content"/>
+                    @include('partials.error', ["fieldTitle" => "content"])
+
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit comment</button>
+            </div>
+        </form>
 @endsection
