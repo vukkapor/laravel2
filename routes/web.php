@@ -25,4 +25,6 @@ Route::post('/movies/{id}/comments', ["as" => "comments-movie", "uses" => "Comme
 
 Route::get('/movies/{id}', ["as" => "single-movie", "uses" => "MoviesController@show"]);
 
+Route::get("/genres/{genre}", ["as" => "genres", "uses" => "GenresController@show"]);
+
 
