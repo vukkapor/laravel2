@@ -11,7 +11,7 @@ class Movie extends Model
         "genre" => "required",
         "director" => "required",
         "year" => "required | max:4 | int",
-        "storyline" => "required | min:20"
+        "storyline" => "required | max:1000"
     ];
 
     protected $fillable = ['title', 'genre', 'director', 'year', 'storyline'];

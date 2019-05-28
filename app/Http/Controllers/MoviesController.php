@@ -32,6 +32,10 @@ class MoviesController extends Controller
     {
         \Log::info(request());
         $this->validate(request(), Movie::STORE_RULES);
+        $year = request()->input('year');
+        if($year<1900 || $year>2019){
+            return view("/movies.createYear");
+        }
         $movie = Movie::create(request()->all());
 
         return redirect()->route("all-movies");
