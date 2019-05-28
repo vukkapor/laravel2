@@ -6,5 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
-    //
+    const STORE_RULES = [
+        "title" => "required",
+        "genre" => "required",
+        "director" => "required",
+        "year" => "required | max:4 | int",
+        "storyline" => "required | min:20"
+    ];
+
+    protected $fillable = ['title', 'genre', 'director', 'year', 'storyline'];
+
 }
