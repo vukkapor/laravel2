@@ -15,9 +15,9 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger("movieId");
+            $table->unsignedBigInteger("movie_id");
             $table->string("content");
-            $table->foreign("movieId")
+            $table->foreign("movie_id")
                 ->references("id")
                 ->on("movies")
                 ->onDelete("cascade");
