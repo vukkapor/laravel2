@@ -11,20 +11,31 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class MoviesController extends Controller
 {
+
+    public function lastFive(){
+        return $moviesSidebar = Movie::latest()->take(5)->get();
+    }
+
     public function index(){
         $movies = Movie::all();
-        return view("/movies.index", compact("movies"));
+
+        $moviesSidebar = self::lastFive();
+        return view("/movies.index", compact("movies", "moviesSidebar"));
     }
 
     public function show($id){
         $movie = Movie::findOrFail($id);
+        $moviesSidebar = self::lastFive();
 
-        return view("/movies.show", compact("movie"));
+        return view("/movies.show", compact("movie", "moviesSidebar"));
     }
 
     public function create()
     {
-        return view("/movies.create");
+        $moviesSidebar = self::lastFive();
+
+        return view("/movies.create",compact("moviesSidebar"));
+
     }
 
 
@@ -41,4 +52,5 @@ class MoviesController extends Controller
         return redirect()->route("all-movies");
 
     }
+
 }

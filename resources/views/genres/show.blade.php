@@ -1,15 +1,13 @@
 @extends('layouts.master')
 
 @section('title')
-
-
+{{$moviesGenre[0]->genre}}
 @endsection
 
 @section('content')
 <ul>
     @foreach ($moviesGenre as $movie)
         <li>
-
             <h2>{{$movie->title}}</h2>
             <p>{{$movie->genre}}</p>
             <p>{{$movie->director}}</p>
