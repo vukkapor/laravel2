@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Movies</title>
-</head>
-<body>
+@extends('layouts.master')
+
+@section('title')
+    Movies
+@endsection
+
+@section('content')
+
     Movies
     <ul>
         @foreach ($movies as $movie)
             <li>
-            <a href="{{$movie->id}}">{{$movie->title}}</a>
+            <a href="{{"movies/" . $movie->id}}">{{$movie->title}}</a>
 
                 {{$movie->storyline}}
             </li>
         @endforeach
 
     </ul>
-</body>
-</html>
+@endsection
